@@ -29,6 +29,7 @@ import { HttpClientModule } from  '@angular/common/http';
 //import { DialogDemoComponent } from './dialog-demo/dialog-demo.component';
 
 import {DialogModule} from 'primeng/dialog';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {DialogModule} from 'primeng/dialog';
     DashBoardComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    UserDetailsComponent
     //DialogDemoComponent,
    
   ],

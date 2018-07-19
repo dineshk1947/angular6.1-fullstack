@@ -35,6 +35,7 @@
     "ng-simple-slideshow": "^1.2.3",
     "ngx-bootstrap": "^3.0.1",
     "ngx-owl-carousel": "^2.0.7",
+    "objectid": "^3.2.1",
     "popper.js": "^1.14.3",
     "primeng": "^6.0.1",
     "rxjs": "^6.0.0",

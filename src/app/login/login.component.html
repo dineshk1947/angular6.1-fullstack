@@ -9,7 +9,7 @@
             
           </div>
           <div class="modal-body">
-                <form action="/action_page.php" style="border:1px solid #ccc">
+                <form id="userId" name="userForm" style="border:1px solid #ccc"  #userData ="ngForm">
                     <h5 style="margin-left: 30px;">Please fill in this form to create an account.</h5>
            
                     <hr> 
@@ -19,26 +19,29 @@
                     </div>
                       <div class="container">
                         <label for="name"><b>Name</b></label>
-                        <input type="text" placeholder="Enter Name" name="name" required>
+                        <input type="text" placeholder="Enter Name"  name="name"  [(ngModel)]="userData.name">
+
+                        <label for="phone"><b>Phone</b></label>
+                        <input type="text" placeholder="Enter PhoneNo"  name="phone"  [(ngModel)]="userData.phone">
+
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email"  [(ngModel)]="userData.email">
                     
-                      <label for="email"><b>Email</b></label>
-                      <input type="text" placeholder="Enter Email" name="email" required>
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw"  min="6" max="32"  [(ngModel)]="userData.pwd">
                     
-                      <label for="psw"><b>Password</b></label>
-                      <input type="password" placeholder="Enter Password" name="psw" min="6" max="32"  required>
+                        <label for="psw-repeat"><b>Confirm Password</b></label>
+                        <input type="password" placeholder="Confirm Password" name="psw-repeat" min="6" max="32" [(ngModel)]="userData.psw-repeat">
                     
-                      <label for="psw-repeat"><b>Confirm Password</b></label>
-                      <input type="password" placeholder="Confirm Password" name="psw-repeat" min="6" max="32" required>
-                    
-                      <label>
+                        <label>
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                      </label>
+                        </label>
                     
                         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
                               <!-- <div class="loader" id="showLoder">Loading...</div> -->
                         <div class="clearfix">
                           <button type="button" class="cancelbtn">Cancel</button>
-                          <button type="submit" class="signupbtn" (click)="createContact()">Sign Up </button>
+                          <button type="submit" class="signupbtn" (click)="createContact(userData.value)">SingnUp</button>
                     
                         </div>
                       </div>
@@ -55,18 +58,23 @@
   
   </div>
   
-
+  <h2 class="text-center">Contact Details...</h2> 
    <table  style="width:100%">
     <tr>
+        <th>SL.no</th>
         <th>Name</th>
         <th>Phone</th>
         <th>Email</th>
-      
+        <th>Remove</th>
+        <th>Update</th>
     </tr>
     <tr *ngFor="let contact of contacts">
+        <td>  {{contact._id}} </td>
         <td>  {{contact.name}} </td>
-        <td>  {{contact.phone }}  </td>
-        <td> {{contact.eamil}} </td>
+        <td>  {{contact.phone}}  </td>
+        <td> {{contact.email}} </td>
+        <td><button type="button" class="glyphicon glyphicon-remove" (click)="deleteContact(contact._id)"></button></td>
+        <td><button type="button" class="glyphicon glyphicon-remove" (click)="updateContact(contact._id)">update</button></td>
      
     </tr>
     </table>
